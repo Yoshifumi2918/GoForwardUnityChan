@@ -12,9 +12,7 @@ public class SE : MonoBehaviour
 
     AudioSource audioSource;
 
-    //音出しの判定
 
-    private bool isSound = true;
   
    
 
@@ -37,23 +35,15 @@ public class SE : MonoBehaviour
     
     {
 
-        //地面に接触した時キューブの効果音を鳴らす
+        //地面に接触した時またはキューブが積み重なったとき効果音を鳴らす
 
-        if (collision.gameObject.tag == "GroundTag")
+        if (collision.gameObject.tag == "GroundTag" || collision.gameObject.tag == "CubeTag")
+        {
 
-            this.isSound = true;
-
-          audioSource.PlayOneShot(sound);
-
-
-        //キューブが積み重なるとき、効果音を流す
-
-        if (collision.gameObject.tag == "CubeTag")
-
-            this.isSound = true;
 
             audioSource.PlayOneShot(sound);
 
+        }
 
 
 
